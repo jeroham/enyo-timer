@@ -13,7 +13,7 @@ enyo.kind({
     published:{
 		// Property: Frequency of elapse event of the timer in millisecond
 		interval: 1000,
-		//Output format for getElapsed function, valid: s, m, m.X(X decimal spaces), h:m, h:m:s
+		//Output format for getElapsed function, valid: s, m, m.X(X decimal spaces), h:m:s
 		format: "m.2",
 		enabled: false
 	},
@@ -70,9 +70,20 @@ enyo.kind({
 		}
 		if(format.indexOf('m.')> -1){
 			spaces = Math.pow(10,parseInt(format.split('.')[1]));
-			//console.log(spaces);
 			return Math.round(parseFloat(this.counter)/parseFloat(60)*spaces)/spaces;
 		}
+		if(format.indexOf('h:m:s')> -1){
+			var sec_num = parseInt(this.counter, 10); // don't forget the second parm
+			var hours   = Math.floor(sec_num / 3600);
+			var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+			var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+			if (hours   < 10) {hours   = "0"+hours;}
+			if (minutes < 10) {minutes = "0"+minutes;}
+			if (seconds < 10) {seconds = "0"+seconds;}
+			return hours+':'+minutes+':'+seconds;
+		}
+		
 		return this.counter;
 	}
 
