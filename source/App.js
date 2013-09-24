@@ -19,16 +19,16 @@ enyo.kind({
 	startStop: function(inSender, inEvent) {
 		if(!this.$.timer.enabled){
 			this.$.timer.start();
-			this.$.main.addContent("Started...<br/>");
+			this.$.main.setContent("Time elapsed: "+this.$.timer.getElapsed("h:m:s"));
 		}
 		else{
-			this.$.main.addContent("The Timer was stopped at "+this.$.timer.getElapsed()+"<br/>");
+			this.$.main.addContent("The Timer was stopped at "+this.$.timer.getElapsed("h:m:s")+"<br/>");
 			this.$.timer.stop();
 		}
 	},
 	counter: 0,
 	//timer: "",
 	print: function(){
-		this.$.main.addContent("intervals: "+this.$.timer.getElapsed()+"<br/>");
+		this.$.main.setContent("Time elapsed: "+this.$.timer.getElapsed("h:m:s"));
 	}
 });
