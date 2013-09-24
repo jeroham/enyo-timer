@@ -1,0 +1,30 @@
+"owners": {                     // List of authors, referenced by component descriptions
+    "jeroham": {                   // Author id (github username)
+        "name": "Jeroham Ortiz",             // Display name for author
+        "website": "http://www.singleb.it",          // Author's website
+        "twitter": "jeroham"           // Author's twitter handle
+    },
+    ...
+}
+"widgets": [                    // The list of components in the gallery
+    {
+        "name": "singlebit.Timer",             // Unique component id (owner.component)
+        "displayName": "Timer",      // Display name for component
+        "owner": "jeroham",        // Author id, from above
+        "dependencies": [       // List of libraries this component requires
+            {
+                "name": "Component",     // Name of dependency
+                "version": ""   // Version of dependency
+            },
+            ...
+        ],
+        "url": "",              // URL to source code (i.e. github link)
+        "demoUrl": "",          // URL to demo website (optional)
+        "submissionDate": "",   // Date of submission (i.e. "Mar 26, 2012")
+        "testedPlatforms": "Chrome,iOS",  // List of platforms this component was tested on
+        "license": "Apache 2.0",          // Reference to standard license (i.e. "Apache 2.0" or license text)
+        "version": "1",         // Version of this component (optional)
+        "blurb": "Javascript timer wrapper component.  Execute a function at intervals and/or a function at a maximum time."             // Description of component
+    },
+    ...
+]
