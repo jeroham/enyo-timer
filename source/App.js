@@ -8,7 +8,7 @@ enyo.kind({
 		{kind: "onyx.Toolbar", content: "Hello Timer"},
 		{kind: "enyo.Scroller", fit: true, components: [
 			{name: "main", classes: "nice-padding", allowHtml: true},
-			{kind: "Timer", name:"timer", onTick: "print", interval:1000, maxtime:5, onMaxElapsed:"helloWorldTap",format:"s"}
+			{kind: "Timer", name:"timer", onTick: "print", interval:1000,enabled:false, maxtime:5, onMaxElapsed:"helloWorldTap",format:"s"}
 			
 		]},
 		{kind: "onyx.Toolbar", components: [
@@ -20,9 +20,11 @@ enyo.kind({
 		if(!this.$.timer.enabled){
 			this.$.timer.start();
 			this.$.main.setContent("Time elapsed: "+this.$.timer.getElapsed("h:m:s"));
+			this.$.starter.setContent('Stop Timer');
 		}
 		else{
-			this.$.main.addContent("The Timer was stopped at "+this.$.timer.getElapsed("h:m:s")+"<br/>");
+			this.$.main.addContent("<br />The Timer was stopped at "+this.$.timer.getElapsed("h:m:s")+"<br/>");
+			this.$.starter.setContent('Start Timer');
 			this.$.timer.stop();
 		}
 	},

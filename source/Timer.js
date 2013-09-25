@@ -37,7 +37,7 @@ enyo.kind({
     {
         this.counter = 0;
         thisObject = this;
-		this.enabled = new Boolean(true);
+		this.enabled = true;
         this.timerId = setInterval(
             function()
             {
@@ -55,7 +55,7 @@ enyo.kind({
     // Function: Stops the timer
     stop: function()
     {            
-        this.enabled = new Boolean(false);
+        this.enabled = false;
 		clearInterval(this.timerId);
     },
 	getElapsed: function (format){
